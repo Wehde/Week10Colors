@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View All Palettes</title>
+</head>
+<body>
+	<form>
+		<table>
+			<tr th:each="currentPalette: ${palettes}">
+				<td><a th:href="@{/edit/{id}(id=${currentPalette.id})}">Edit</a></td>
+				<td><a th:href="@{/delete/{id}(id=${currentPalette.id})}">Delete</a></td>
+				<td th:text="${currentPalette.name}" />
+				<td th:text="${currentPalette.count}" />
+				<td th:text="${currentPalette.colors}" />
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Update Palette</title>
+</head>
+<body>
+	<form th:object="${newPalette}" th:action="@{/update/{id}(id=${newPalette.id})}" method=POST>
+		Name: <input name="name" size="20" th:field="*{name}"><br />
+		Count: <input name="count" size="2" th:field="*{count}"><br />
+		Colors: <input name="colors" type="checkbox" th:each="color : ${allColors}" th:text="${color.hexColor}" th:value="${color.hexColor}" th:field="*{colors}" /> <br />
+		<input name="Submit" type="submit" value="submit" />
+	</form>
+	<a href="../inputColor">Add a new Color</a>
+	<a href="../viewAll">View All Palettes</a>
+</body>
+</html>

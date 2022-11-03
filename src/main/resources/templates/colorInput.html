@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Color</title>
+</head>
+<body>
+	<form th:object="${newColor}" method=POST>
+		Hex Color Code: <input name="hexColor" size="6" th:field="*{hexColor}"><br />
+		<input name="Submit" type="submit" value="submit" />
+	</form>
+	<a href="../inputColor">Add a new Color</a>
+	<a href="../viewAll">View All Palettes</a>
+</body>
+</html>

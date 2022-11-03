@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>View Colors</title>
+</head>
+<body>
+	<table>
+		<tr th:each="currentColor: ${colors}">
+			<td th:text="${currentColor.hexColor}" />
+			<td th:text="${currentColor.hexGray}" />
+		</tr>
+	</table>
+	<a href="../inputColor">Add a new Color</a>
+	<a href="../viewAll">View All Palettes</a>
+</body>
+</html>

@@ -7,10 +7,11 @@ package dmacc.beans;
 
 import java.util.List;
 
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Palette {
@@ -20,7 +21,7 @@ public class Palette {
 	private long id;
 	private String name;
 	private int count;
-	@ElementCollection
+	@ManyToMany(fetch = FetchType.LAZY)
 	private List<HexColor> colors;
 	
 	//Getters and Setters

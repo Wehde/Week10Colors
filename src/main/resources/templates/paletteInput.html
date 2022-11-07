@@ -5,13 +5,14 @@
 <title>Update Palette</title>
 </head>
 <body>
-	<form th:object="${newPalette}" th:action="@{/update/{id}(id=${newPalette.id})}" method=POST>
+	<form name="paletteForm" th:object="${newPalette}" th:action="@{/update/{id}(id=${newPalette.id})}" method=POST onsubmit="return validate();">
 		Name: <input name="name" size="20" th:field="*{name}"><br />
-		Count: <input name="count" size="2" th:field="*{count}"><br />
-		Colors: <input name="colors" type="checkbox" th:each="color : ${allColors}" th:text="${color.hexColor}" th:value="${color.hexColor}" th:field="*{colors}" /> <br />
+		Count: <input name="count" id="count" size="2" th:field="*{count}" readonly><br />
+		Colors: <input name="colors" type="checkbox" th:each="color : ${allColors}" th:text="${color.hexColor}" th:value="${color.hexColor}" th:field="*{colors}" onclick="getColorCount()"/> <br />
 		<input name="Submit" type="submit" value="submit" />
 	</form>
 	<a href="../inputColor">Add a new Color</a>
 	<a href="../viewAll">View All Palettes</a>
 </body>
+<script src="palette.js"></script>
 </html>

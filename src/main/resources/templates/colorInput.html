@@ -5,11 +5,11 @@
 <title>Add Color</title>
 </head>
 <body>
-	<form th:object="${newColor}" method=POST>
-		Hex Color Code: <input name="hexColor" size="6" th:field="*{hexColor}"><br />
+	<form name="colorForm" th:object="${newColor}" method=POST onsubmit="return validate();">
+		Hex Color Code: #<input name="hexColor" size="6" th:field="*{hexColor}" oninput="this.value = hexChars(this.value);"><br />
 		<input name="Submit" type="submit" value="submit" />
 	</form>
 	<a href="../inputPalette">Add a new Palette</a>
 	<a href="../viewAll">View All Palettes</a>
 </body>
-</html>
+<script src="color.js"></script>
